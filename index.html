@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Gandhi Jayanti Challenge 2026 - Secure Edition</title>
+
+  <!-- Social Share & WhatsApp Open Graph Tags -->
+  <meta property="og:title" content="Gandhi Jayanti Challenge 2026 🕊️">
+  <meta property="og:description" content="Official 3-Round Gandhi Jayanti Competition. Test your knowledge, assemble Ahimsa principles, and navigate the historic Dandi March!">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#E26D14">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+
+  <!-- Confetti Canvas Layer -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand-badge">
+        <div class="brand-logo-icon">
+          <!-- Spectacles SVG -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E26D14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="12" r="4"></circle>
+            <circle cx="18" cy="12" r="4"></circle>
+            <path d="M10 12h4"></path>
+            <path d="M2 12h0"></path>
+            <path d="M22 12h0"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Gandhi Jayanti</h1>
+          <p>Secure Challenge</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <span class="security-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Locked
+        </span>
+
+        <button id="sound-toggle-btn" class="icon-btn" title="Toggle Sound" aria-label="Toggle Sound">
+          🔔
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Screens Viewport -->
+    <main class="screens-viewport">
+
+      <!-- ============================================== -->
+      <!-- SCREEN 1: WELCOME & ONBOARDING                 -->
+      <!-- ============================================== -->
+      <section id="screen-welcome" class="game-screen active">
+        
+        <div style="text-align: center; margin-top: 2px;">
+          <span class="badge badge-saffron">October 2 • Official Competition</span>
+          <h2 class="screen-title" style="font-size: 22px; margin-top: 6px;">The Ahimsa Spirit Challenge</h2>
+          <p class="screen-subtitle" style="margin-bottom: 12px;">Test your knowledge, assemble principles, and guide the 1930 Salt March.</p>
+        </div>
+
+        <!-- Spinning Charkha Emblem Graphic -->
+        <div class="charkha-container">
+          <svg class="charkha-wheel" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="7" fill="#C2A676" stroke="#8C6D37" stroke-width="2" />
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#E26D14" stroke-width="3" stroke-dasharray="2 3" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#386641" stroke-width="2" />
+            <g stroke="#C2A676" stroke-width="1.8">
+              <line x1="50" y1="50" x2="50" y2="8" />
+              <line x1="50" y1="50" x2="50" y2="92" />
+              <line x1="50" y1="50" x2="8" y2="50" />
+              <line x1="50" y1="50" x2="92" y2="50" />
+              <line x1="50" y1="50" x2="20.3" y2="20.3" />
+              <line x1="50" y1="50" x2="79.7" y2="79.7" />
+              <line x1="50" y1="50" x2="20.3" y2="79.7" />
+              <line x1="50" y1="50" x2="79.7" y2="20.3" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Dynamic Inspiring Quote -->
+        <div id="welcome-quote-box" class="quote-box">
+          "Be the change that you wish to see in the world."
+          <div class="quote-author">— Mahatma Gandhi</div>
+        </div>
+
+        <!-- Anti-Cheating & Integrity Guard Notice Card -->
+        <div class="integrity-rules-card">
+          <div class="integrity-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Anti-Cheating & Integrity Guard
+          </div>
+          <ul class="integrity-list">
+            <li><strong>Single Attempt Lock:</strong> Your device is locked to 1 attempt. Reloading or re-entering the link locks access.</li>
+            <li><strong>Screen Overlay & Focus Guard:</strong> Switching tabs, minimizing, or opening AI overlays (Gemini / Circle to Search) triggers a strike. 2 violations = <strong>Instant zero score & disqualification</strong>.</li>
+            <li><strong>Copy Protection:</strong> Text copying, right-click, and search shortcuts are disabled.</li>
+          </ul>
+        </div>
+
+        <!-- Stages Overview Card -->
+        <div class="stages-overview">
+          <div class="stages-title">Challenge Stages (3 Rounds)</div>
+          
+          <div class="stage-item">
+            <div class="stage-num">1</div>
+            <div class="stage-info">
+              <div class="stage-name">Gandhi Trivia (Randomized)</div>
+              <div class="stage-desc">5 MCQs from 18+ pool • 15s timer • Must score ≥ 3/5</div>
+            </div>
+          </div>
+
+          <div class="stage-item">
+            <div class="stage-num">2</div>
+            <div class="stage-info">
+              <div class="stage-name">Ahimsa Sequence & Principles</div>
+              <div class="stage-desc">Reorder quotes & pillars • 60s total timer • Must solve ≥ 2/3</div>
+            </div>
+          </div>
+
+          <div class="stage-item">
+            <div class="stage-num">3</div>
+            <div class="stage-info">
+              <div class="stage-name">Dandi March Route Challenge</div>
+              <div class="stage-desc">Interactive chronological map • Precision & speed bonus</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Player Name Input & Launch CTA -->
+        <div class="form-group">
+          <label for="player-name-input" class="form-label">Player Name / Handle</label>
+          <div class="input-with-icon">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input type="text" id="player-name-input" class="input-field" placeholder="Enter your full name" maxlength="24" autocomplete="name">
+          </div>
+        </div>
+
+        <button id="start-btn" class="btn btn-primary" style="margin-top: 4px;">
+          <span>Start Challenge (Single Attempt)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 2: ROUND 1 - TRIVIA (ELIMINATION)       -->
+      <!-- ============================================== -->
+      <section id="screen-round1" class="game-screen">
+        
+        <!-- HUD Bar -->
+        <div class="hud-bar">
+          <div class="hud-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="r1-hud-user">Player</span>
+          </div>
+
+          <div class="hud-pill">
+            <span class="badge badge-saffron" id="r1-hud-qnum">1/5</span>
+          </div>
+
+          <!-- Circular 15-second Countdown Timer -->
+          <div class="timer-container">
+            <div class="timer-ring-wrapper">
+              <svg width="32" height="32" viewBox="0 0 36 36">
+                <path class="timer-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path id="r1-ring-fill" class="timer-ring-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span id="r1-timer-num" class="timer-value">15</span>
+            </div>
+          </div>
+
+          <div class="hud-pill">
+            <span id="r1-hud-score" style="font-weight: 700; color: var(--color-saffron);">0 pts</span>
+          </div>
+        </div>
+
+        <!-- Progress Track -->
+        <div class="progress-track">
+          <div id="r1-progress" class="progress-fill" style="width: 20%;"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="trivia-question-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span class="badge badge-khaki">Round 1: Elimination Trivia</span>
+            <span style="font-size: 10px; font-weight: 700; color: var(--color-danger);">15s Auto-Lock</span>
+          </div>
+          <h3 id="r1-question-text" class="question-text">Question prompt goes here...</h3>
+        </div>
+
+        <!-- Educational Fact Snippet Box -->
+        <div id="r1-fact-box" class="fact-snippet"></div>
+
+        <!-- Answer Options -->
+        <div id="r1-options-container" class="options-list">
+          <!-- Dynamically populated with randomized options -->
+        </div>
+
+        <div style="font-size: 11px; text-align: center; color: var(--color-text-muted); margin-top: auto;">
+          ⚡ Speed Bonus: Quick answers score more. Need ≥ 3/5 correct to advance.
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 2A: ROUND 1 PASS TRANSITION             -->
+      <!-- ============================================== -->
+      <section id="screen-r1-pass" class="game-screen">
+        <div class="result-card">
+          <div class="result-icon-circle pass">🕊️</div>
+          <span class="badge badge-olive">Stage 1 Qualified</span>
+          <h2 class="result-title" style="margin-top: 8px;">Round 1 Cleared!</h2>
+          <p class="screen-subtitle">Your knowledge of Bapu's life and ideals is outstanding.</p>
+
+          <div class="score-breakdown-table">
+            <div class="breakdown-row">
+              <span>Correct Answers</span>
+              <span id="r1-pass-correct" style="font-weight: 700; color: var(--color-olive);">4/5</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Stage 1 Points</span>
+              <span id="r1-pass-score" style="font-weight: 700; color: var(--color-saffron);">480 pts</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Status</span>
+              <span style="color: var(--color-olive); font-weight: 700;">PASSED TO ROUND 2</span>
+            </div>
+          </div>
+
+          <button id="r1-advance-btn" class="btn btn-olive">
+            <span>Advance to Round 2: Ahimsa Sequence</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 2B: ROUND 1 FAIL (GAME OVER - NO RETRY) -->
+      <!-- ============================================== -->
+      <section id="screen-r1-fail" class="game-screen">
+        <div class="result-card">
+          <div class="result-icon-circle fail">⌛</div>
+          <span class="badge badge-danger">Eliminated</span>
+          <h2 class="result-title" style="margin-top: 8px;">Game Over</h2>
+          <p class="screen-subtitle">Qualification standard not met.</p>
+          <p style="font-size: 13px; color: var(--color-text-main); margin-bottom: 12px;">
+            You scored <strong id="r1-fail-score" style="color: var(--color-danger);">2/5</strong> correct. A minimum of 3 correct answers is required to advance.
+          </p>
+
+          <div class="quote-box" style="margin: 14px 0; text-align: left;">
+            "Strength does not come from physical capacity. It comes from an indomitable will."
+            <div class="quote-author">— Mahatma Gandhi</div>
+          </div>
+
+          <div class="score-breakdown-table">
+            <div class="breakdown-row">
+              <span>Final Points Recorded</span>
+              <strong id="r1-fail-points" style="color: var(--color-saffron);">120 pts</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>Attempt Status</span>
+              <strong style="color: var(--color-danger);">Completed (Single Attempt Limit Reached)</strong>
+            </div>
+          </div>
+
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 8px;">
+            In accordance with single-attempt regulations, no re-attempts are permitted.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 3: ROUND 2 - AHIMSA SEQUENCE            -->
+      <!-- ============================================== -->
+      <section id="screen-round2" class="game-screen">
+        
+        <!-- HUD Bar -->
+        <div class="hud-bar">
+          <div class="hud-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="r2-hud-user">Player</span>
+          </div>
+
+          <div class="hud-pill">
+            <span class="badge badge-saffron" id="r2-hud-puzzle-num">1/3</span>
+          </div>
+
+          <!-- Circular 60s Countdown Timer -->
+          <div class="timer-container">
+            <div class="timer-ring-wrapper">
+              <svg width="32" height="32" viewBox="0 0 36 36">
+                <path class="timer-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path id="r2-ring-fill" class="timer-ring-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span id="r2-timer-num" class="timer-value" style="font-size: 10px;">60s</span>
+            </div>
+          </div>
+
+          <div class="hud-pill">
+            <span id="r2-hud-score" style="font-weight: 700; color: var(--color-saffron);">0 pts</span>
+          </div>
+        </div>
+
+        <div class="puzzle-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span class="badge badge-khaki" id="puzzle-title">Puzzle 1: Arrange Quote</span>
+            <span id="r2-hud-solved" style="font-size: 11px; font-weight: 700; color: var(--color-olive);">0/3 Solved</span>
+          </div>
+          <div id="puzzle-instruction" class="puzzle-instruction">
+            Tap items to swap, or use arrows to arrange in order:
+          </div>
+
+          <!-- Scrambled Blocks Container -->
+          <div id="puzzle-blocks-container" class="puzzle-blocks-container">
+            <!-- Dynamically populated -->
+          </div>
+
+          <button id="verify-order-btn" class="btn btn-olive" style="padding: 12px 16px; margin-top: 6px;">
+            <span>Check & Lock Order</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div style="font-size: 11px; text-align: center; color: var(--color-text-muted); margin-top: auto;">
+          💡 Mobile Tip: Tap one block, then tap another to swap places! Must solve ≥ 2/3 within 60s.
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 3A: ROUND 2 PASS TRANSITION             -->
+      <!-- ============================================== -->
+      <section id="screen-r2-pass" class="game-screen">
+        <div class="result-card">
+          <div class="result-icon-circle pass">⚖️</div>
+          <span class="badge badge-olive">Stage 2 Qualified</span>
+          <h2 class="result-title" style="margin-top: 8px;">Ahimsa Sequence Solved!</h2>
+          <p class="screen-subtitle">You have accurately assembled the core philosophies of Truth and Non-Violence.</p>
+
+          <div class="score-breakdown-table">
+            <div class="breakdown-row">
+              <span>Puzzles Completed</span>
+              <span id="r2-pass-count" style="font-weight: 700; color: var(--color-olive);">3/3</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Time Remaining Bonus</span>
+              <span id="r2-pass-time" style="font-weight: 700;">28s</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Round 2 Points</span>
+              <span id="r2-pass-score" style="font-weight: 700; color: var(--color-saffron);">660 pts</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Status</span>
+              <span style="color: var(--color-olive); font-weight: 700;">QUALIFIED FOR GRAND FINALE</span>
+            </div>
+          </div>
+
+          <button id="r2-advance-btn" class="btn btn-primary">
+            <span>Proceed to Finale: Dandi March</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 3B: ROUND 2 FAIL (GAME OVER - NO RETRY) -->
+      <!-- ============================================== -->
+      <section id="screen-r2-fail" class="game-screen">
+        <div class="result-card">
+          <div class="result-icon-circle fail">⌛</div>
+          <span class="badge badge-danger">Eliminated</span>
+          <h2 class="result-title" style="margin-top: 8px;">Time Elapsed - Game Over</h2>
+          <p class="screen-subtitle">Qualification standard not met.</p>
+          <p style="font-size: 13px; color: var(--color-text-main); margin-bottom: 12px;">
+            You solved <strong id="r2-fail-solved" style="color: var(--color-danger);">1/3</strong> puzzles. A minimum of 2 correct puzzles within 60 seconds was required.
+          </p>
+
+          <div class="score-breakdown-table">
+            <div class="breakdown-row">
+              <span>Total Points Recorded</span>
+              <strong id="r2-fail-points" style="color: var(--color-saffron);">200 pts</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>Attempt Status</span>
+              <strong style="color: var(--color-danger);">Session Concluded (Single Attempt Enforced)</strong>
+            </div>
+          </div>
+
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 8px;">
+            Thank you for participating in the Gandhi Jayanti Challenge.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 4: ROUND 3 - DANDI MARCH ROUTE MAP      -->
+      <!-- ============================================== -->
+      <section id="screen-round3" class="game-screen">
+        
+        <!-- HUD Bar -->
+        <div class="hud-bar">
+          <div class="hud-pill">
+            <span id="r3-hud-user">Player</span>
+          </div>
+
+          <div class="hud-pill">
+            <span class="badge badge-olive" id="r3-hud-progress">0/8 Stops</span>
+          </div>
+
+          <div class="hud-pill">
+            <span id="r3-timer-num" style="font-weight: 700; color: var(--color-navy);">0s</span>
+          </div>
+
+          <div class="hud-pill">
+            <span id="r3-hud-score" style="font-weight: 700; color: var(--color-saffron);">0 pts</span>
+          </div>
+        </div>
+
+        <!-- Progress Track -->
+        <div class="progress-track">
+          <div id="r3-progress-bar" class="progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <!-- Map & Quest Container -->
+        <div class="dandi-map-card">
+          <div class="dandi-hud">
+            <span class="badge badge-khaki">The 1930 Salt Satyagraha</span>
+            <span style="font-size: 11px; font-weight: 700; color: var(--color-saffron);">240 Miles • 24 Days</span>
+          </div>
+
+          <!-- Prompt Banner for the Next Destination -->
+          <div class="dandi-target-prompt">
+            <div>
+              <div style="font-size: 11px; opacity: 0.85;">Marching Target:</div>
+              <div id="dandi-target-name" style="font-size: 14.5px; font-weight: 800; color: #FF9933;">Stop #1: Sabarmati Ashram</div>
+            </div>
+            <span id="dandi-target-date" class="target-badge">March 12, 1930</span>
+          </div>
+
+          <!-- Illustrated Historical Route Map SVG -->
+          <div class="dandi-map-viewport">
+            <svg id="dandi-route-svg" class="dandi-map-svg" viewBox="0 0 320 250">
+              <path id="svg-bg-path" class="route-path-bg" d="M 40,25 L 80,60 L 120,95 L 160,130 L 180,165 L 200,195 L 220,220 L 240,240" />
+              <path id="svg-active-path" class="route-path-traveled" d="" />
+              <g id="svg-pins-group"></g>
+            </svg>
+          </div>
+        </div>
+
+        <div style="font-size: 12px; font-weight: 700; color: var(--color-navy); margin-top: 4px;">
+          Tap the Next Destination in Chronological Sequence:
+        </div>
+        <div id="dandi-stops-grid" class="dandi-stops-list">
+          <!-- Populated dynamically -->
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 5: FINAL RESULTS & PODIUM               -->
+      <!-- ============================================== -->
+      <section id="screen-final" class="game-screen">
+        
+        <div style="text-align: center; margin-bottom: 10px;">
+          <span class="badge badge-olive">🏆 Challenge Completed</span>
+          <h2 class="screen-title" style="font-size: 23px; margin-top: 6px;">Podium & Leaderboard</h2>
+          <p class="screen-subtitle">Congratulations <strong id="final-player-name" style="color: var(--color-saffron);">Player</strong>! Here is your verified performance.</p>
+          <div id="final-total-score" class="result-score-highlight">0 pts</div>
+        </div>
+
+        <!-- 3-Place Dynamic Podium -->
+        <div class="podium-container">
+          
+          <!-- 2nd Place Silver -->
+          <div class="podium-step second">
+            <div class="podium-avatar">
+              🥈
+            </div>
+            <div id="podium-2nd-name" class="podium-player-name">Player 2</div>
+            <div id="podium-2nd-score" class="podium-player-score">1200 pts</div>
+            <div class="podium-pillar">2</div>
+          </div>
+
+          <!-- 1st Place Gold -->
+          <div class="podium-step first">
+            <div class="podium-avatar">
+              <span class="crown-badge">👑</span>
+              🥇
+            </div>
+            <div id="podium-1st-name" class="podium-player-name">Player 1</div>
+            <div id="podium-1st-score" class="podium-player-score">1450 pts</div>
+            <div class="podium-pillar">1</div>
+          </div>
+
+          <!-- 3rd Place Bronze -->
+          <div class="podium-step third">
+            <div class="podium-avatar">
+              🥉
+            </div>
+            <div id="podium-3rd-name" class="podium-player-name">Player 3</div>
+            <div id="podium-3rd-score" class="podium-player-score">1050 pts</div>
+            <div class="podium-pillar">3</div>
+          </div>
+
+        </div>
+
+        <!-- Score Breakdown Card -->
+        <div class="score-breakdown-table" style="margin-top: 12px;">
+          <div class="breakdown-row">
+            <span>Round 1: Gandhi Trivia</span>
+            <span id="score-r1-val" style="font-weight: 700;">0 pts</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Round 2: Ahimsa Assembly</span>
+            <span id="score-r2-val" style="font-weight: 700;">0 pts</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Round 3: Dandi March Route</span>
+            <span id="score-r3-val" style="font-weight: 700;">0 pts</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Integrity Status</span>
+            <span style="font-weight: 800; color: var(--color-olive);">Verified Clean Attempt</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Live Leaderboard Card -->
+        <div class="leaderboard-card">
+          <div class="leaderboard-title">
+            <span>Contest Leaderboard</span>
+            <span class="badge badge-khaki">Top Participants</span>
+          </div>
+          <div id="leaderboard-list-items" class="leaderboard-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Action Buttons: WhatsApp Share & Certificate -->
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">
+          <button id="share-whatsapp-btn" class="btn btn-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>Share Score on WhatsApp</span>
+          </button>
+
+          <button id="view-cert-btn" class="btn btn-secondary">
+            <span>📜 View Certificate of Ahimsa</span>
+          </button>
+
+          <button id="copy-link-btn" class="btn btn-secondary">
+            <span>🔗 Copy Share Link</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 6: LOCKED SCREEN (ALREADY ATTEMPTED)    -->
+      <!-- ============================================== -->
+      <section id="screen-locked" class="game-screen">
+        <div class="result-card">
+          <div class="result-icon-circle fail" style="background:#FFF3E6; border-color:#E26D14; color:#E26D14;">
+            🔒
+          </div>
+          <span id="locked-status-badge" class="badge badge-saffron">Attempt Recorded</span>
+          <h2 class="result-title" style="margin-top: 8px;">Challenge Already Completed</h2>
+          <p class="screen-subtitle">You have already completed your attempt today!</p>
+
+          <div style="font-size: 13px; color: var(--color-text-main); margin-bottom: 6px;">
+            Player: <strong id="locked-player-name" style="color: var(--color-navy);">Player</strong>
+          </div>
+          <div id="locked-score-highlight" class="result-score-highlight" style="margin: 6px 0;">0 pts</div>
+
+          <div class="quote-box" style="margin: 14px 0; text-align: left;">
+            "A man is but the product of his thoughts. What he thinks, he becomes."
+            <div class="quote-author">— Mahatma Gandhi</div>
+          </div>
+
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 18px;">
+            Under single-attempt competition rules, re-attempts or link re-entries on this device are locked.
+          </p>
+
+          <button id="locked-share-btn" class="btn btn-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>Share My Score on WhatsApp</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 7: DISQUALIFIED SCREEN (CHEATING)       -->
+      <!-- ============================================== -->
+      <section id="screen-disqualified" class="game-screen">
+        <div class="result-card" style="border-color: var(--color-danger);">
+          <div class="result-icon-circle fail">
+            🚫
+          </div>
+          <span class="badge badge-danger">Integrity Violation</span>
+          <h2 class="result-title" style="color: var(--color-danger); margin-top: 8px;">Attempt Disqualified</h2>
+          <p id="disqualified-reason" class="screen-subtitle" style="color: var(--color-danger);">
+            Screen focus lost, application minimized, or AI search overlay detected.
+          </p>
+
+          <div class="score-breakdown-table" style="background:#FFF5F5; border-color:#FFD2D6;">
+            <div class="breakdown-row">
+              <span>Final Recorded Score</span>
+              <strong style="color: var(--color-danger);">0 pts (Disqualified)</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>Status</span>
+              <strong style="color: var(--color-danger);">Session Terminated</strong>
+            </div>
+          </div>
+
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 14px;">
+            This challenge enforces strict integrity rules to prevent unauthorized searching of answers. Your device is permanently locked.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Footer with Organizer Secret Trigger -->
+    <footer class="app-footer">
+      <span>Gandhi Jayanti 2026 • Ahimsa Challenge</span>
+      <button id="admin-secret-trigger" class="footer-secret-btn" title="Organizer Admin">
+        ⚙️ Organizer
+      </button>
+    </footer>
+
+    <!-- FULL SCREEN FOCUS / OVERLAY ALERT MODAL (STRIKE 1) -->
+    <div id="screen-focus-alert-modal" class="anti-cheat-modal">
+      <div class="anti-cheat-card">
+        <div class="strike-badge">⚠️ Screen Focus Lost / Overlay Detected!</div>
+        <h3 style="font-size: 17px; font-weight: 800; color: var(--color-navy); margin-bottom: 8px;">Staying on Page is Required!</h3>
+        <p style="font-size: 12.5px; color: var(--color-text-main); margin-bottom: 12px; line-height: 1.5;">
+          Navigating away, switching tabs, minimizing, or summoning AI search overlays (Gemini / Circle to Search) is strictly monitored.
+        </p>
+        <p style="font-size: 12px; font-weight: 700; color: var(--color-danger); margin-bottom: 18px;">
+          🚨 Next attempt will result in instant zero score and session termination!
+        </p>
+        <button id="focus-alert-ack-btn" class="btn btn-primary" style="background: var(--color-danger);">
+          I Understand — Return to Challenge
+        </button>
+      </div>
+    </div>
+
+    <!-- SECRET ADMIN LOGIN MODAL -->
+    <div id="admin-login-modal" class="admin-modal">
+      <div class="admin-card" style="max-width: 340px; text-align: center;">
+        <div style="font-size: 32px; margin-bottom: 4px;">🔐</div>
+        <h3 style="font-size: 18px; font-weight: 800; color: var(--color-navy);">Admin Access</h3>
+        <p style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 16px;">
+          Competition organizers only. Enter security PIN:
+        </p>
+
+        <div style="margin-bottom: 12px;">
+          <input type="password" id="admin-pin-input" class="input-field" placeholder="Enter PIN (Default: 1861)" style="padding-left:16px; text-align:center; font-size:18px; letter-spacing:4px;" maxlength="10">
+        </div>
+
+        <div id="admin-pin-error" style="color:var(--color-danger); font-size:11.5px; font-weight:600; display:none; margin-bottom:12px;"></div>
+
+        <div style="display: flex; gap: 8px;">
+          <button id="admin-pin-close-btn" class="btn btn-secondary" style="flex:1; padding:10px;">Cancel</button>
+          <button id="admin-pin-submit-btn" class="btn btn-olive" style="flex:1.4; padding:10px;">Login</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD PANEL -->
+    <div id="admin-panel-modal" class="admin-modal">
+      <div class="admin-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--color-card-border); padding-bottom:8px; margin-bottom:10px;">
+          <div>
+            <h3 style="font-size:16px; font-weight:800; color:var(--color-navy);">⚙️ Organizer Dashboard</h3>
+            <span style="font-size:11px; color:var(--color-text-muted);">Total Submissions: <strong id="admin-total-players" style="color:var(--color-saffron);">0</strong></span>
+          </div>
+          <button id="admin-panel-close-btn" class="icon-btn" style="width:28px; height:28px;">✕</button>
+        </div>
+
+        <!-- Admin Table -->
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Player</th>
+                <th>R1</th>
+                <th>R2</th>
+                <th>R3</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Controls Toolbar -->
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+          <button id="admin-unlock-device-btn" class="btn btn-olive" style="padding:10px; font-size:12px;">
+            🔓 Unlock This Device for New Test
+          </button>
+          <div style="display:flex; gap:8px;">
+            <button id="admin-export-csv-btn" class="btn btn-secondary" style="flex:1; padding:8px; font-size:11px;">
+              📥 Export CSV
+            </button>
+            <button id="admin-clear-lb-btn" class="btn btn-secondary" style="flex:1; padding:8px; font-size:11px; color:var(--color-danger);">
+              🗑️ Clear Scores
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commemorative Certificate Modal -->
+    <div id="certificate-modal" class="modal-overlay">
+      <div class="certificate-card">
+        <div style="position: absolute; top: 12px; right: 12px;">
+          <button id="close-cert-btn" class="icon-btn" style="width: 28px; height: 28px;">✕</button>
+        </div>
+
+        <div style="font-size: 26px; margin-bottom: 2px;">🕊️</div>
+        <div class="cert-title">Certificate of Ahimsa</div>
+        <div class="cert-subtitle">Gandhi Jayanti 2026 Commendation</div>
+
+        <div style="font-size: 12px; color: var(--color-text-muted);">This is proudly awarded to</div>
+        <div id="cert-player-name" class="cert-name">Player Name</div>
+
+        <p class="cert-body">
+          For demonstrating exemplary historical knowledge, philosophical reflection on Ahimsa & Satyagraha, and successfully tracing the historic 1930 Dandi Salt March route.
+        </p>
+
+        <div style="margin: 12px auto; display: inline-block;">
+          <span class="badge badge-saffron" id="cert-score-text">1450 Points</span>
+        </div>
+
+        <div class="cert-footer">
+          <div>
+            <div style="font-weight: 700; color: var(--color-navy);">Gandhi Jayanti 2026</div>
+            <div id="cert-date-text">October 2, 2026</div>
+          </div>
+
+          <div class="cert-seal">
+            Ahimsa<br>Seal
+          </div>
+
+          <div>
+            <div style="font-weight: 700; color: var(--color-navy);">Truth & Non-Violence</div>
+            <div>Satyameva Jayate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
